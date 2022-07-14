@@ -1,0 +1,56 @@
+Device:
+    LS3_1:
+        Model: LineScale3
+        Version: 2.600                      # 2.600 2.530 2.520 2.411
+        MAC: 'F1:F2:F3:F4:F5:01'
+        USB: COM8                            # Windows:COMx Linux:/dev/ttyUSBx - Cable must be connected to LS3 slave
+        USB_Speed: 460800                    # 9600 38400 230400 460800 (if not set 230400 is used) (Speed here and on LS3 'UART Baud' must match) (for 1280Hz 460800 should be used, or data is lost)
+        TimingCorrectionFactor: 0.91122090   # correct timing inaccuracy (default 0.9)
+    LS3_2:
+        Model: LineScale3
+        Version: 2.600
+        MAC: 'F1:F2:F3:F4:F5:02'
+        USB: COM9                            # Windows:COMx Linux:/dev/ttyUSBx - Cable must be connected to LS3 slave
+        USB_Speed: 460800                    # 9600 38400 230400 460800 (if not set 230400 is used) (Speed here and on LS3 'UART Baud' must match) (for 1280Hz 460800 should be used, or data is lost)
+        TimingCorrectionFactor: 0.8912       # correct timing inaccuracy (default 0.9)
+    LS3_3:
+        Model: LineScale3
+        Version: 2.411
+        MAC: 'F1:F2:F3:F4:F5:03'
+        USB: COM10                           # Windows:COMx Linux:/dev/ttyUSBx - Cable must be connected to LS3 slave
+        USB_Speed: 230400                    # 9600 38400 230400 460800 (if not set 230400 is used) (Speed here and on LS3 'UART Baud' must match) (for 1280Hz 460800 should be used, or data is lost)
+UseDevices:
+    LS3_1:
+        ConnectionType: Bluetooth            # USB Bluetooth none
+        InitialCommands:                     # Capturing is activated after all Initial commands have been sent
+            - SaveOnboardLogging
+            - ModeABS
+            - UnitSwitchTokN
+            - Speed40
+            - Speed1280
+            #- ZeroButton
+    LS3_2:
+        ConnectionType: USB                  # USB Bluetooth none
+        InitialCommands:
+            - SaveOnboardLogging
+            - ModeABS
+            - UnitSwitchTokN
+            - Speed40
+            - Speed1280
+            #- ForceClose
+            #- ZeroButton
+Capture:
+    PreCaptureTime_s: 5                      # seconds in int
+    StartTrigger: 0.04                       # value in load of SetUnit (to always capture set a low value e.g. -50.0, to not use StartTrigger use a high value e.g. 50.0)
+    StopTrigger: -0.1                        # value in load of SetUnit (to deactivate set a low value e.g. -50.0)
+    MaxCaptureTime_s: 60                     # seconds in int (seconds since StartTrigger)
+    MinCaptureTime_s: 10                     # seconds in int  (seconds since StartTrigger)
+    CaptureMode: continuous                  # continuous single
+    TriggerMode: single                      # single (todo: combined)
+    AutoGeneratePlot: True                   # True False
+#OnboardLogging:
+#    CSVDateFormatFromLS3: '%y\%m\%d'        # must match the LS3 Setting (Date/Time -> Time format) Available: '%d.%m.%y'(default) or '%y\%m\%d'
+#LS3OS:
+#    VersionSpecific:                          # Configuration depending on the LS3 version (the next lowerequal value than Device version is used )
+#        99.99:
+#            OnboardLogging_row_index_list: ['Device', 'No', 'Date', 'Time', 'Speed', 'Trig', 'Stop', 'Pre', 'Catch', 'Total', 'DataStart']

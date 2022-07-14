@@ -1,0 +1,912 @@
+Bluetooth:
+    UART_RX_CHAR_UUID: '00001001-0000-1000-8000-00805f9b34fb'
+    UART_TX_CHAR_UUID: '00001002-0000-1000-8000-00805f9b34fb'
+Commands:
+    ActivateLogging:
+        Hex_Code: '41 0D 0A 58'
+        Description: 'Deactivate logging - Request PC or Bluetooth online command'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    DeactivateLogging:
+        Hex_Code: '45 0D 0A 5C'
+        Description: 'Activate_Logging - Disconnect PC or Bluetooth online command'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    MenuButton:
+        Hex_Code: '4F 0D 0A 66'
+        Description: 'same as hitting Menu button - docu says Power off but after changing the behavior...'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ClearPeak:
+        Hex_Code: '43 0D 0A 5A'
+        Description: '(not working) Peak clearing operation command'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ZeroButton:
+        Hex_Code: '5A 0D 0A 71'
+        Description: 'same as Hitting the ZeroButton - in ABS (min max zero) | in Peak (clear peak) | in REL (reset REL)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ResetABS:
+        Hex_Code: '54 0D 0A 6B'
+        Description: 'Set the current value as the absolute zero command'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    UnitSwitchTokN:
+        Hex_Code: '4E 0D 0A 65'
+        Description: 'Unit switch to kN command'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    UnitSwitchTokgf:
+        Hex_Code: '47 0D 0A 5E'
+        Description: 'Unit switch to kgf command'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    UnitSwitchTolbf:
+        Hex_Code: '42 0D 0A 59'
+        Description: 'Unit switch to lbf command'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    Speed10:
+        Hex_Code: '53 0D 0A 6A'
+        Description: 'Speed switch to SLOW(10Hz)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    Speed40:
+        Hex_Code: '46 0D 0A 5D'
+        Description: 'Speed switch to FAST(40Hz) '
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    Speed640:
+        Hex_Code: '4D 0D 0A 64'
+        Description: 'Speed switch to 640Hz'
+        SupportedProtocol:
+            Bluetooth: False
+            USB: True
+    Speed1280:
+        Hex_Code: '51 0D 0A 68'
+        Description: 'Speed switch to 1280Hz'
+        SupportedProtocol:
+            Bluetooth: False
+            USB: True
+    ModeABS:
+        Hex_Code: '59 0D 0A 70'
+        Description: 'Switch to absolute zero mode'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ModeREL:
+        Hex_Code: '58 0D 0A 6F'
+        Description: 'Switch to relative zero mode'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ModeToggleABS_REL:
+        Hex_Code: '4C 0D 0A 63'
+        Description: 'toggle between Relative zero (zero) or absolute zero (net) mode'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ForceClose:
+        Hex_Code: ''
+        Description: 'Force Closing the device (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    SaveOnboardLogging:
+        Hex_Code: ''
+        Description: 'Read and save all Onboard Logging to csv (special Command)'
+        SupportedProtocol:
+            Bluetooth: False
+            USB: True
+    StartCapture:
+        Hex_Code: ''
+        Description: 'Start capture (without triggers) (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    StopCapture:
+        Hex_Code: ''
+        Description: 'Stop capture (without triggers, wait for MinCaptureTime_s) (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    StopCaptureNow:
+        Hex_Code: ''
+        Description: 'Stop capture (without triggers, do not wait for MinCaptureTime_s) (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ActivateCapture:
+        Hex_Code: ''
+        Description: 'Activate Capture mode (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    DeactivateCapture:
+        Hex_Code: ''
+        Description: 'Deactivate Capture mode (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    Wait:
+        Hex_Code: ''
+        Description: 'Wait for a x Seconds. Use: Wait60, Wait120 ... (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    RawCMD:
+        Hex_Code: ''
+        Description: 'Send RAR COMMAND Use: RawCMD_1234_T RawCMD_1234_F (with T LS3CRC is added)  (special Command)'
+        SupportedProtocol:
+            Bluetooth: True
+            USB: True
+    ReadLog1:
+        Hex_Code: '52 30 30 0D 0A C9'
+        Description: 'Read the first log command'
+        SupportedProtocol:
+            Bluetooth: False
+            USB: True
+    ReadLog2:
+        Hex_Code: 52 30 31 0D 0A CA
+        Description: Read the 1th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog3:
+        Hex_Code: 52 30 32 0D 0A CB
+        Description: Read the 2th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog4:
+        Hex_Code: 52 30 33 0D 0A CC
+        Description: Read the 3th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog5:
+        Hex_Code: 52 30 34 0D 0A CD
+        Description: Read the 4th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog6:
+        Hex_Code: 52 30 35 0D 0A CE
+        Description: Read the 5th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog7:
+        Hex_Code: 52 30 36 0D 0A CF
+        Description: Read the 6th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog8:
+        Hex_Code: 52 30 37 0D 0A D0
+        Description: Read the 7th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog9:
+        Hex_Code: 52 30 38 0D 0A D1
+        Description: Read the 8th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog10:
+        Hex_Code: 52 30 39 0D 0A D2
+        Description: Read the 9th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog11:
+        Hex_Code: 52 31 30 0D 0A CA
+        Description: Read the 10th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog12:
+        Hex_Code: 52 31 31 0D 0A CB
+        Description: Read the 11th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog13:
+        Hex_Code: 52 31 32 0D 0A CC
+        Description: Read the 12th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog14:
+        Hex_Code: 52 31 33 0D 0A CD
+        Description: Read the 13th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog15:
+        Hex_Code: 52 31 34 0D 0A CE
+        Description: Read the 14th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog16:
+        Hex_Code: 52 31 35 0D 0A CF
+        Description: Read the 15th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog17:
+        Hex_Code: 52 31 36 0D 0A D0
+        Description: Read the 16th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog18:
+        Hex_Code: 52 31 37 0D 0A D1
+        Description: Read the 17th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog19:
+        Hex_Code: 52 31 38 0D 0A D2
+        Description: Read the 18th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog20:
+        Hex_Code: 52 31 39 0D 0A D3
+        Description: Read the 19th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog21:
+        Hex_Code: 52 32 30 0D 0A CB
+        Description: Read the 20th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog22:
+        Hex_Code: 52 32 31 0D 0A CC
+        Description: Read the 21th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog23:
+        Hex_Code: 52 32 32 0D 0A CD
+        Description: Read the 22th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog24:
+        Hex_Code: 52 32 33 0D 0A CE
+        Description: Read the 23th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog25:
+        Hex_Code: 52 32 34 0D 0A CF
+        Description: Read the 24th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog26:
+        Hex_Code: 52 32 35 0D 0A D0
+        Description: Read the 25th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog27:
+        Hex_Code: 52 32 36 0D 0A D1
+        Description: Read the 26th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog28:
+        Hex_Code: 52 32 37 0D 0A D2
+        Description: Read the 27th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog29:
+        Hex_Code: 52 32 38 0D 0A D3
+        Description: Read the 28th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog30:
+        Hex_Code: 52 32 39 0D 0A D4
+        Description: Read the 29th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog31:
+        Hex_Code: 52 33 30 0D 0A CC
+        Description: Read the 30th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog32:
+        Hex_Code: 52 33 31 0D 0A CD
+        Description: Read the 31th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog33:
+        Hex_Code: 52 33 32 0D 0A CE
+        Description: Read the 32th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog34:
+        Hex_Code: 52 33 33 0D 0A CF
+        Description: Read the 33th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog35:
+        Hex_Code: 52 33 34 0D 0A D0
+        Description: Read the 34th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog36:
+        Hex_Code: 52 33 35 0D 0A D1
+        Description: Read the 35th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog37:
+        Hex_Code: 52 33 36 0D 0A D2
+        Description: Read the 36th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog38:
+        Hex_Code: 52 33 37 0D 0A D3
+        Description: Read the 37th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog39:
+        Hex_Code: 52 33 38 0D 0A D4
+        Description: Read the 38th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog40:
+        Hex_Code: 52 33 39 0D 0A D5
+        Description: Read the 39th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog41:
+        Hex_Code: 52 34 30 0D 0A CD
+        Description: Read the 40th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog42:
+        Hex_Code: 52 34 31 0D 0A CE
+        Description: Read the 41th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog43:
+        Hex_Code: 52 34 32 0D 0A CF
+        Description: Read the 42th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog44:
+        Hex_Code: 52 34 33 0D 0A D0
+        Description: Read the 43th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog45:
+        Hex_Code: 52 34 34 0D 0A D1
+        Description: Read the 44th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog46:
+        Hex_Code: 52 34 35 0D 0A D2
+        Description: Read the 45th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog47:
+        Hex_Code: 52 34 36 0D 0A D3
+        Description: Read the 46th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog48:
+        Hex_Code: 52 34 37 0D 0A D4
+        Description: Read the 47th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog49:
+        Hex_Code: 52 34 38 0D 0A D5
+        Description: Read the 48th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog50:
+        Hex_Code: 52 34 39 0D 0A D6
+        Description: Read the 49th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog51:
+        Hex_Code: 52 35 30 0D 0A CE
+        Description: Read the 50th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog52:
+        Hex_Code: 52 35 31 0D 0A CF
+        Description: Read the 51th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog53:
+        Hex_Code: 52 35 32 0D 0A D0
+        Description: Read the 52th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog54:
+        Hex_Code: 52 35 33 0D 0A D1
+        Description: Read the 53th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog55:
+        Hex_Code: 52 35 34 0D 0A D2
+        Description: Read the 54th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog56:
+        Hex_Code: 52 35 35 0D 0A D3
+        Description: Read the 55th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog57:
+        Hex_Code: 52 35 36 0D 0A D4
+        Description: Read the 56th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog58:
+        Hex_Code: 52 35 37 0D 0A D5
+        Description: Read the 57th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog59:
+        Hex_Code: 52 35 38 0D 0A D6
+        Description: Read the 58th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog60:
+        Hex_Code: 52 35 39 0D 0A D7
+        Description: Read the 59th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog61:
+        Hex_Code: 52 36 30 0D 0A CF
+        Description: Read the 60th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog62:
+        Hex_Code: 52 36 31 0D 0A D0
+        Description: Read the 61th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog63:
+        Hex_Code: 52 36 32 0D 0A D1
+        Description: Read the 62th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog64:
+        Hex_Code: 52 36 33 0D 0A D2
+        Description: Read the 63th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog65:
+        Hex_Code: 52 36 34 0D 0A D3
+        Description: Read the 64th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog66:
+        Hex_Code: 52 36 35 0D 0A D4
+        Description: Read the 65th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog67:
+        Hex_Code: 52 36 36 0D 0A D5
+        Description: Read the 66th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog68:
+        Hex_Code: 52 36 37 0D 0A D6
+        Description: Read the 67th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog69:
+        Hex_Code: 52 36 38 0D 0A D7
+        Description: Read the 68th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog70:
+        Hex_Code: 52 36 39 0D 0A D8
+        Description: Read the 69th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog71:
+        Hex_Code: 52 37 30 0D 0A D0
+        Description: Read the 70th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog72:
+        Hex_Code: 52 37 31 0D 0A D1
+        Description: Read the 71th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog73:
+        Hex_Code: 52 37 32 0D 0A D2
+        Description: Read the 72th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog74:
+        Hex_Code: 52 37 33 0D 0A D3
+        Description: Read the 73th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog75:
+        Hex_Code: 52 37 34 0D 0A D4
+        Description: Read the 74th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog76:
+        Hex_Code: 52 37 35 0D 0A D5
+        Description: Read the 75th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog77:
+        Hex_Code: 52 37 36 0D 0A D6
+        Description: Read the 76th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog78:
+        Hex_Code: 52 37 37 0D 0A D7
+        Description: Read the 77th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog79:
+        Hex_Code: 52 37 38 0D 0A D8
+        Description: Read the 78th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog80:
+        Hex_Code: 52 37 39 0D 0A D9
+        Description: Read the 79th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog81:
+        Hex_Code: 52 38 30 0D 0A D1
+        Description: Read the 80th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog82:
+        Hex_Code: 52 38 31 0D 0A D2
+        Description: Read the 81th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog83:
+        Hex_Code: 52 38 32 0D 0A D3
+        Description: Read the 82th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog84:
+        Hex_Code: 52 38 33 0D 0A D4
+        Description: Read the 83th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog85:
+        Hex_Code: 52 38 34 0D 0A D5
+        Description: Read the 84th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog86:
+        Hex_Code: 52 38 35 0D 0A D6
+        Description: Read the 85th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog87:
+        Hex_Code: 52 38 36 0D 0A D7
+        Description: Read the 86th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog88:
+        Hex_Code: 52 38 37 0D 0A D8
+        Description: Read the 87th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog89:
+        Hex_Code: 52 38 38 0D 0A D9
+        Description: Read the 88th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog90:
+        Hex_Code: 52 38 39 0D 0A DA
+        Description: Read the 89th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog91:
+        Hex_Code: 52 39 30 0D 0A D2
+        Description: Read the 90th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog92:
+        Hex_Code: 52 39 31 0D 0A D3
+        Description: Read the 91th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog93:
+        Hex_Code: 52 39 32 0D 0A D4
+        Description: Read the 92th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog94:
+        Hex_Code: 52 39 33 0D 0A D5
+        Description: Read the 93th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog95:
+        Hex_Code: 52 39 34 0D 0A D6
+        Description: Read the 94th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog96:
+        Hex_Code: 52 39 35 0D 0A D7
+        Description: Read the 95th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog97:
+        Hex_Code: 52 39 36 0D 0A D8
+        Description: Read the 96th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog98:
+        Hex_Code: 52 39 37 0D 0A D9
+        Description: Read the 97th log command
+        SupportedProtocol:
+            Bluetooth: false
+            USB: true
+    ReadLog99:
+        Hex_Code: 52 39 38 0D 0A DA
+        Description: Read the 98th log command
+        SupportedProtocol:
+        Bluetooth: false
+        USB: true
+    ReadLog100:
+        Hex_Code: '52 39 39 0D 0A DB'
+        Description: 'Read the 100th log command'
+        SupportedProtocol:
+
+            Bluetooth: False
+            USB: True
+    ReadLogxy:
+        Hex_Code: '52 3x 3y 0D 0A ??'
+        Description: 'Read the xyth log command(x<=9,y<=9)'
+        SupportedProtocol:
+            Bluetooth: False
+            USB: True
+MessageCode:
+    WorkingMode:
+        "R": "real-time mode"
+        "O": "test is overloaded"
+        "C": "maximum capacity"
+    MeasureMode:
+        "N": "ABS"                          # absolute zero mode
+        "Z": "REL"                          # relative zero mode
+    UnitValue:
+        "N": "kN"
+        "G": "kgf"
+        "B": "lbf"
+    SpeedValue:
+        "S": "10"
+        "F": "40"
+        "M": "640"
+        "Q": "1280"
+OnboardLogging:
+    CSVDateFormatFromLS3: '%d.%m.%y'
+    CSVDateFormatSave: '%y_%m_%d'
+    CSVTimeFormatFromLS3: '%H:%M:%S'
+    CSVTimeFormatSave: '%H_%M_%S'
+    CSVOverride: True
+    AutoGeneratePlot: True
+Path:
+    Backup: Backup
+    Data: Data
+    OnboardLogging: Data
+LS3OS:
+    Generic:
+        OnboardLogging_row_dict:
+            Device:
+                regex: '(^[A-Z0-9]{2}:[A-Z0-9]{2}:[A-Z0-9]{2}$)'
+                regex_group: 1
+                min_index: 0
+                max_index: 0
+                index: !None
+                value: !None
+                value_type: !str
+            Date:
+                regex: '([0-9]{2}\.[0-9]{2}\.[0-9]{2})'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !str
+            Time:
+                regex: '([0-9]{2}:[0-9]{2}:[0-9]{2})'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !str
+            'No':
+                regex: '^(LogNo=)?(No\.)?([0-9]+)$'
+                regex_group: 3
+                min_index: 0
+                max_index: 4
+                index: !None
+                value: !None
+                value_type: !int
+            Unit:
+                regex: 'Unit=([a-zA-Z]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !str
+            Mode:
+                regex: 'Mode=([a-zA-Z]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !str
+            RelZero:
+                # regex: 'RelZero=([0-9a-zA-Z\./]+)'
+                regex: 'RelZero=([0-9\.]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !float
+            Speed:
+                regex: 'Speed=([0-9]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !int
+            Trig:
+                regex: 'Trig=([0-9\.]+)([a-zA-Z]*)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !float
+            Stop:
+                regex: 'Stop=([0-9\.]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !float
+            Pre:
+                regex: 'Pre=([0-9\.]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !int
+            Catch:
+                regex: 'Catch=([0-9\.]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !int
+            Total:
+                regex: 'Total=([0-9\.]+)'
+                regex_group: 1
+                min_index: 1
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !int
+            data_offset:
+                regex: '^((-)?[0-9]+(\.[0-9]+)?)$'
+                regex_group: 1
+                min_index: 5
+                max_index: 25
+                index: !None
+                value: !None
+                value_type: !float ''
+    VersionSpecific:                            # Configuration depending on the LS3 version
+        2.0:
+            OnboardLogging_row_index_list: ['No', 'Date', 'Time', 'Speed', 'Trig', 'Stop', 'Pre', 'Catch', 'Total', 'DataStart']
+        2.520:
+            OnboardLogging_row_index_list: ['DeviceID', 'No', 'Date', 'Time', 'Unit', 'Speed', 'Trig', 'Stop', 'Pre', 'Catch', 'Total', 'DataStart']
+        2.600:
+            OnboardLogging_row_index_list: ['DeviceID', 'Date', 'Time', 'No', 'Unit', 'Mode', 'RelZero', 'Speed', 'Trig', 'Stop', 'Pre', 'Catch', 'Total', 'DataStart']
